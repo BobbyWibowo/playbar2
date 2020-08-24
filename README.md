@@ -21,7 +21,7 @@ On expanded:
 | `Right`, `L` | Seek forward 5s |
 | `Home`       | Seek start      |
 | `End`        | Seek end        |
-| `Num: [0..9]`| Jump to porcentage, `Key 0: 0%, ..., Key 9: 90%` |
+| `Num: [0..9]`| Jump to percentage, `Key 0: 0%, ..., Key 9: 90%` |
 
 On panel:
 
