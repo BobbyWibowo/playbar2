@@ -155,7 +155,7 @@ PlasmaCore.DataSource {
     }
 
     onSourceRemoved: {
-        if (source === currentSource)
+        if (source === currentSource || currentSource === "@multiplex")
             nextSource()
 
         debug('source removed:', source)
