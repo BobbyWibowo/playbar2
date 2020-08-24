@@ -70,10 +70,10 @@ private:
     KSharedConfigPtr m_config;
     ConfigDialog *m_configDialog {nullptr};
     KActionCollection *m_collection {nullptr};
-    DataEngine* m_mpris2Engine {nullptr};
+    DataEngine *m_mpris2Engine {nullptr};
     DataEngine::Data *m_data {nullptr};
 
-    const char * const MPRIS2 {"mpris2"};
+    const char *const MPRIS2 {"mpris2"};
     qlonglong m_currentPosition {0};
 
     QAction *m_playpause;

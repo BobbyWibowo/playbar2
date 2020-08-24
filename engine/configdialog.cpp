@@ -26,7 +26,7 @@
 #include "generalwidget.h"
 #include "playbarsettings.h"
 
-ConfigDialog::ConfigDialog(KActionCollection *collection , QWidget *parent)
+ConfigDialog::ConfigDialog(KActionCollection *collection, QWidget *parent)
     : KConfigDialog(parent, QLatin1String("PlayBar Settings"), PlayBarSettings::self()),
       m_generalPage(new GeneralWidget(this))
 {

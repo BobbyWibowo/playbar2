@@ -36,7 +36,7 @@
 
 using namespace Plasma;
 
-PlayBar::PlayBar(KSharedConfigPtr &config , QObject *parent)
+PlayBar::PlayBar(KSharedConfigPtr &config, QObject *parent)
     : QObject(parent),
       m_config(config),
       m_data(new Plasma::DataEngine::Data()),
@@ -92,17 +92,20 @@ PlayBar::~PlayBar()
 {
 }
 
-QString PlayBar::source() const {
+QString PlayBar::source() const
+{
     return mpris2_source;
 }
 
-void PlayBar::setSource(const QString &source) {
+void PlayBar::setSource(const QString &source)
+{
     if (!m_mpris2Engine)
         m_mpris2Engine = dataEngine(MPRIS2);
     else
         m_mpris2Engine->disconnectSource(mpris2_source, this);
 
     mpris2_source = source.trimmed();
+
     if (!mpris2_source.isEmpty()) {
         m_mpris2Engine->connectSource(mpris2_source, this);
     }
@@ -195,7 +198,7 @@ const DataEngine::Data &PlayBar::data()
 
 inline void PlayBar::startAction(const QString &name) const
 {
-    if(!m_mpris2Engine || mpris2_source.isEmpty())
+    if (!m_mpris2Engine || mpris2_source.isEmpty())
         return;
 
     auto *service = m_mpris2Engine->serviceForSource(mpris2_source);
@@ -207,7 +210,7 @@ inline void PlayBar::startAction(const QString &name) const
 
 inline void PlayBar::seek(qlonglong us) const
 {
-    if(!m_mpris2Engine || mpris2_source.isEmpty())
+    if (!m_mpris2Engine || mpris2_source.isEmpty())
         return;
 
     auto *service = m_mpris2Engine->serviceForSource(mpris2_source);
@@ -224,7 +227,8 @@ void PlayBar::dataUpdated(const QString &sourceName, const DataEngine::Data &dat
         if (data.contains("Position")) {
             m_currentPosition = data["Position"].toLongLong();
         }
-    } else {
+    }
+    else {
         m_mpris2Engine->disconnectSource(sourceName, this);
     }
 }

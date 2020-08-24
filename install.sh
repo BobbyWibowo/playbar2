@@ -1,8 +1,10 @@
 #!/bin/bash
 
 ./formatter.sh
+rm -rf build
+mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_LIBDIR=lib64/qt5 -DCMAKE_BUILD_TYPE=Release ..
-make
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
+make -j9
 sudo make install
 cd ..
